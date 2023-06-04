@@ -54,7 +54,7 @@
     <form>
       <fieldset>
         <legend>Error Calculator</legend>
-        <input name="first-num" id="first-num" />
+        <!-- <input name="first-num" id="first-num" /> -->
         <select name="operator" id="operator">
           <option>+</option>
           <option>-</option>
@@ -88,6 +88,11 @@
   </main>
 
   <script>
+
+    window.addEventListener('error', () => {
+      console.log("There was an error here"); 
+    });
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -102,6 +107,95 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns[0].addEventListener('click', () => {
+      console.log("Log button was clicked"); 
+    });
+    errorBtns[1].addEventListener('click', () => {
+      console.error("The error button was clicked");
+    });
+    errorBtns[2].addEventListener('click', () => {
+      console.count("The count button has been clicked"); 
+    });
+    errorBtns[3].addEventListener('click', () => {
+      console.warn("The warn button has been clicked");
+    });
+    errorBtns[4].addEventListener('click', () => {
+      const x = 10; const y = 54; 
+      const statement = "The assert button has been clicked"
+      console.assert(x > y, {x,y,statement});
+    });
+    errorBtns[5].addEventListener('click', () => {
+      console.clear();
+    });
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(errorBtns[6]);
+    });
+    errorBtns[7].addEventListener('click', () => {
+      console.dirxml(errorBtns[7]);
+    });
+    errorBtns[8].addEventListener('click', () => {
+      console.group();
+    });
+    errorBtns[9].addEventListener('click', () => {
+      console.groupEnd();
+    });
+    errorBtns[10].addEventListener('click', () => {
+      classes = [
+        {
+          class: 'CSE110',
+          prof: 'Powell'
+        },
+        {
+          class: 'CSE134B',
+          prof: 'Powell' 
+        },
+        {
+          class: 'CSE112',
+          prof: 'Powell' 
+        }
+      ]
+      console.table(classes)
+    });
+    errorBtns[11].addEventListener('click', () => {
+      console.time(); 
+    });
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd(); 
+    });
+    errorBtns[13].addEventListener('click', () => {
+      console.trace(); 
+    });
+    errorBtns[14].addEventListener('click', () => {
+      console.log("Triggering a global error...");
+      let %$broken;
+    });
+
+    try {
+      let obj = document.querySelector('#first-num').value;
+      console.log(obj);
+    } catch (err){
+      console.error(err);
+    } finally {
+      console.log("Finally... here we are");
+    } 
+
+    class CustomError extends Error{
+      constructor(message){
+        super(message); 
+        this.name = 'CustomError';
+      }
+    }
+
+    function throwACustomError(){
+      throw new CustomError("oopsie-daisy! (This is the custom error)"); 
+    }
+
+    try {
+      throwACustomError();
+    } catch (err){
+      alert(err.message); 
+    }
+    
   </script>
 </body>
 

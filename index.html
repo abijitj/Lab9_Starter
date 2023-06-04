@@ -63,7 +63,7 @@
     <form>
       <fieldset>
         <legend>Error Calculator</legend>
-        <!-- <input name="first-num" id="first-num" /> -->
+        <input name="first-num" id="first-num" />
         <select name="operator" id="operator">
           <option>+</option>
           <option>-</option>
@@ -75,6 +75,7 @@
         <br />
         <output></output>
       </fieldset>
+      <!--<p>-->Erroneous text</p>
     </form>
 
     <section id="error-btns">
@@ -184,7 +185,7 @@
 
     //Step 3
     try {
-      let obj = document.querySelector('#first-num').value;
+      let obj = document.querySelector('p').value;
       console.log(obj);
     } catch (err){
       console.error(err);

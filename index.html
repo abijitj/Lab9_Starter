@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "8d3f8fb5d1874a01b65d11f8ce73feef"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+  TrackJS.track('Testing TrackJS!');
+</script>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,11 +97,6 @@
   </main>
 
   <script>
-
-    window.addEventListener('error', () => {
-      console.log("There was an error here"); 
-    });
-
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -107,6 +111,14 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    //Step 5
+    //TrackJS.track('Testing TrackJS!');
+    window.addEventListener('error', () => {
+      console.log("There was an error here"); 
+    });
+
+    //Step 2
     errorBtns[0].addEventListener('click', () => {
       console.log("Log button was clicked"); 
     });
@@ -170,6 +182,7 @@
       let %$broken;
     });
 
+    //Step 3
     try {
       let obj = document.querySelector('#first-num').value;
       console.log(obj);
@@ -179,6 +192,7 @@
       console.log("Finally... here we are");
     } 
 
+    //Step 4
     class CustomError extends Error{
       constructor(message){
         super(message); 
